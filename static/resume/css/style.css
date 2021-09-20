@@ -465,6 +465,11 @@ a:focus {
 .about .skills {
     padding-top: 15px;
 }
+.about .skills h3 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
 
 .about .skill-name {
     margin-top: 15px;
