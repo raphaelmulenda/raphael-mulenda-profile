@@ -74,10 +74,12 @@ WSGI_APPLICATION = 'my_profile.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+DATABASES = {'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'resumedb',
+        'USER': 'postgres',
+        'PASSWORD': '0811890235rfM',
+        'HOST': 'localhost'
     }
 }
 
@@ -127,3 +129,8 @@ STATICFILES_DIRS = [BASE_DIR/"static"]
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Media Folder Setting
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

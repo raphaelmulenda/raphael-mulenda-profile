@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,99 @@
     <link href="static/resume/test/style.css" rel="stylesheet">
     <title>Welcome</title>
 </head>
+
 <body>
-    <h2>Yeah it works</h2>
+   <!-- <h2>Yeah it works {{aboutme.last_name}}</h2>
+
+
+    <h2> Trying <h2>
+            <ul>
+                {% for skill in aboutme  %}
+                <li>
+                    {{skill.first_name}}
+                    {{skill.work_profession}}
+                </li>
+                {{about.work_profession}}
+                {% endfor %}
+                <h2>Tag</h2>
+                {% for tag in aboutme %}
+                {% for x  in tag.skill.all  %}
+                <ul>
+
+                    <li>
+
+                        {{x.area_of_work}}
+                        {% endfor %}
+                        <li>{{x.skill_branch}}</li>
+                        
+
+
+                    </li>
+                      </ul>
+                    {% endfor %}
+                    
+
+                   
+                </ul>
+
+               
+
+
+                </ul>-->
+
+
+<h2>About</h2>
+{% for about in aboutme %}
+
+<h3>{{about.first_name}} {{about.last_name}} </h3>
+
+<h2>Profession</h2>
+
+ {% for x in about.professions.all %}
+ <li>
+ {{x.work_profession}}
+ </li>
+ {% endfor %}
+{% endfor %}
+
+<h2>SkillArea</h2>
+
+{% for skillfield in skillfields %} 
+<li>
+{{skillfield}}
+</li>
+
+{% endfor %}
+
+<h2>Profesion</h2>
+
+{% for expertise in expertises %}
+<li>
+{{expertise}}
+</li>
+ {% endfor %}
+
+<h2>Skills</h2>
+{% for skill in skills %}
+
+<li>
+{{skill.skill_branch}} {{skill.skill_level}} {{skill.area_of_work}} 
+
+</li>
+
+{% endfor %}
+
+<h2> Mix of Skills & SkillArea</h2>
+
+{% for skillx in skills  %}
+
+ {% ifchanged  %} {{skillx.area_of_work}} {% endifchanged %}
+
+<li>{{skillx.skill_branch}}</li>
+
+
+
+{% endfor %}
 </body>
+
 </html>
-
-
-
