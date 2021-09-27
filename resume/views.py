@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
-from .models import Profession, Skillarea , Skill,Aboutme
+from .models import Profession, Skillarea , Skill,Aboutme, Education, Experience,Service,Portfolio, Contact
+from django.views.generic.edit import CreateView
+from .form import ContactForm
 
 # Create your views here.
 
@@ -45,5 +47,17 @@ class HomePageView(TemplateView):
          context ['skills'] = Skill.objects.all()
          context ['skillfields'] = Skillarea.objects.all()
          context ['expertises'] = Profession.objects.all()
+         context ['educations'] = Education.objects.all()
+         context ['experiences'] = Experience.objects.all()
+         context ['services'] = Service.objects.all()
+         context ['portfolios'] = Portfolio.objects.all()
+         context ['form'] = ContactForm()
          return context
+     
+
+class ContactView(CreateView):
+    model = Contact
+    form_class = ContactForm
+    template_name = "resume/contact.html"
+    
     

@@ -5,23 +5,13 @@
 {% block content %}
 
 <div class="wrapper">
-    {% include "partials/_sidebar.html" %}
+    {% include "resume/sidebar.html" %}
     {% for about in aboutme  %}
     <div class="content">
         <!-- Header Start -->
-        <div class="header" id="header">
-            <div class="content-inner">
-                <p>I'm</p>
-                <h1>{{about.first_name}} {{about.last_name}}</h1>
-                <h2></h2>
-                {% for expertise in expertises  %}
-                <div class="typed-text">, {{expertise}}</div>
-                {% endfor %}
-            </div>
-            
-        </div>
-        <!-- Header End -->
-       
+        {% include "resume/header.html" %}
+        <!-- Header Start -->
+
         <!-- Large Button Start -->
         <div class="large-btn">
             <div class="content-inner">
@@ -33,247 +23,29 @@
 
         <!-- About Start -->
         {% include "resume/about.html" %}
-        
+
         <!-- About End -->
-{% endfor %}
+        {% endfor %}
         <!-- Education Start -->
-        {% include "partials/_education.html" %}
+        {% include "resume/education.html" %}
         <!-- Education End -->
 
         <!-- Experience Start -->
-        {% include "partials/_experience.html" %}
+        {% include "resume/experience.html" %}
         <!-- Experience End -->
 
         <!-- Service Start -->
-        {% include "partials/_service.html" %}
-        <!-- Service Start -->
-
+        {% include "resume/service.html" %}
+        <!-- Service End -->
         <!-- Portfolio Start -->
-        <div class="portfolio" id="portfolio">
-            <div class="content-inner">
-                <div class="content-header">
-                    <h2>Portfolio</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <ul id="portfolio-flters">
-                            <li data-filter="*" class="filter-active">All</li>
-                            <li data-filter=".web-des">Python</li>
-                            <li data-filter=".web-dev"> Web Development</li>
-                            <li data-filter=".dig-mar">Power Bi Development</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row portfolio-container">
-                    <div class="col-lg-4 col-md-6 portfolio-item web-des">
-                        <div class="portfolio-wrap">
-                            <figure>
-                                <img src="static/resume/img/password_manger.png" class="img-fluid" alt="">
-                                <a href="static/resume/img/password_manger.png" data-lightbox="portfolio"
-                                    data-title="Password Manager" class="link-preview" title="Preview"><i
-                                        class="fa fa-eye"></i></a>
-                                <a href="https://github.com/raphaelmulenda/password-manager.git" class="link-details"
-                                    title="More Details"><i class="fa fa-link"></i></a>
-                                <a class="portfolio-title"
-                                    href="https://github.com/raphaelmulenda/password-manager.git">Password Manager
-                                    <span>Desktop Application Development</span></a>
-                            </figure>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item web-des">
-                        <div class="portfolio-wrap">
-                            <figure>
-                                <img src="static/resume/img/distance_converter.png" class="img-fluid" alt="">
-                                <a href="static/resume/img/distance_converter.png" class="link-preview"
-                                    data-lightbox="portfolio" data-title="Distance Converter " title="Preview"><i
-                                        class="fa fa-eye"></i></a>
-                                <a href="https://github.com/raphaelmulenda/Distance-Converter.git" class="link-details"
-                                    title="More Details"><i class="fa fa-link"></i></a>
-                                <a class="portfolio-title"
-                                    href="https://github.com/raphaelmulenda/Distance-Converter.git">Distance Converter
-                                    <span>Desktop Application Development</span></a>
-                            </figure>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item web-dev">
-                        <div class="portfolio-wrap">
-                            <figure>
-                                <img src="static/resume/img/tic_tac_toe.png" class="img-fluid" alt="">
-                                <a href="static/resume/img/tic_tac_toe.png" class="link-preview"
-                                    data-lightbox="portfolio" data-title="Project Name" title="Preview"><i
-                                        class="fa fa-eye"></i></a>
-                                <a href="https://tic-tac-toe-oline.herokuapp.com/tic_tac_toe" class="link-details"
-                                    title="More Details"><i class="fa fa-link"></i></a>
-                                <a class="portfolio-title"
-                                    href="https://tic-tac-toe-oline.herokuapp.com/tic_tac_toe">Tic Tac Toe Game
-                                    <span>Web Development</span></a>
-                            </figure>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item web-dev">
-                        <div class="portfolio-wrap">
-                            <figure>
-                                <img src="static/resume/img/Raphael_blog.png" class="img-fluid" alt="">
-                                <a href="static/resume/img/Raphael_blog.png" class="link-preview"
-                                    data-lightbox="portfolio" data-title="Personal Blog" title="Preview"><i
-                                        class="fa fa-eye"></i></a>
-                                <a href="https://raphaelrfm-blog.herokuapp.com/" class="link-details"
-                                    title="More Details"><i class="fa fa-link"></i></a>
-                                <a class="portfolio-title" href="https://raphaelrfm-blog.herokuapp.com/">Personal Blog
-                                    <span>Web Development</span></a>
-                            </figure>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item dig-mar">
-                        <div class="portfolio-wrap">
-                            <figure>
-                                <img src="static/resume/img/Powerbi_overview_report.png" class="img-fluid" alt="">
-                                <a href="static/resume/img/Powerbi_overview_report.png" class="link-preview"
-                                    data-lightbox="portfolio" data-title="Service overview Report" title="Preview"><i
-                                        class="fa fa-eye"></i></a>
-                                <a href="https://github.com/raphaelmulenda/Power-BI_Report.git" class="link-details"
-                                    title="More Details"><i class="fa fa-link"></i></a>
-                                <a class="portfolio-title"
-                                    href="https://github.com/raphaelmulenda/Power-BI_Report.git">Service Overview Report
-                                    <span>Power Bi Developer</span></a>
-                            </figure>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item dig-mar">
-                        <div class="portfolio-wrap">
-                            <figure>
-                                <img src="static/resume/img/powerbi_report_compliance.png" class="img-fluid" alt="">
-                                <a href="static/resume/img/powerbi_report_compliance.png" class="link-preview"
-                                    data-lightbox="portfolio" data-title="Compliance to Resolution Time"
-                                    title="Preview"><i class="fa fa-eye"></i></a>
-                                <a href="https://github.com/raphaelmulenda/Power-BI_Report.git" class="link-details"
-                                    title="More Details"><i class="fa fa-link"></i></a>
-                                <a class="portfolio-title"
-                                    href="https://github.com/raphaelmulenda/Power-BI_Report.git">Compliance To
-                                    Resolution Time <span>Power Bi Developer</span></a>
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include "resume/portfolio.html" %}
         <!-- Portfolio End -->
 
-        <!-- Review Start 
-                <div class="review" id="review">
-                    <div class="content-inner">
-                        <div class="content-header">
-                            <h2>Review</h2>
-                        </div>
-                        <div class="row align-items-center review-slider">
-                            <div class="col-md-12">
-                                <div class="review-slider-item">
-                                    <div class="review-text">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu suscipit orci. Donec molestie velit id libero blandit, quis suscipit urna suscipit. Donec aliquet erat eu lacinia iaculis. Ut tempor tellus eu sem pharetra feugiat.
-                                        </p>
-                                    </div>
-                                    <div class="review-img">
-                                        <img src="static/resume/img/review-1.jpg" alt="Image">
-                                        <div class="review-name">
-                                            <h3>Client Name</h3>
-                                            <p>Profession</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="review-slider-item">
-                                    <div class="review-text">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu suscipit orci. Donec molestie velit id libero blandit, quis suscipit urna suscipit. Donec aliquet erat eu lacinia iaculis. Ut tempor tellus eu sem pharetra feugiat.
-                                        </p>
-                                    </div>
-                                    <div class="review-img">
-                                        <img src="static/resume/img/review-2.jpg" alt="Image">
-                                        <div class="review-name">
-                                            <h3>Client Name</h3>
-                                            <p>Profession</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="review-slider-item">
-                                    <div class="review-text">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu suscipit orci. Donec molestie velit id libero blandit, quis suscipit urna suscipit. Donec aliquet erat eu lacinia iaculis. Ut tempor tellus eu sem pharetra feugiat.
-                                        </p>
-                                    </div>
-                                    <div class="review-img">
-                                        <img src="static/resume/img/review-3.jpg" alt="Image">
-                                        <div class="review-name">
-                                            <h3>Client Name</h3>
-                                            <p>Profession</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+        <!-- Review Start -->
         <!-- Review End -->
 
         <!-- Contact Start -->
-        <div class="contact" id="contact">
-            <div class="content-inner">
-                <div class="content-header">
-                    <h2>Contact</h2>
-                </div>
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <div class="contact-info">
-                            <p><i class="fa fa-user"></i>Raphael Mulenda</p>
-                            <p><i class="fa fa-tag"></i>Service Manager, Python Developer & Web Developer</p>
-                            <p><i class="fa fa-envelope"></i><a
-                                    href="mailto:mulendaraphael@yahoo.fr">mulendaraphael@yahoo.fr</a></p>
-                            <p><i class="fa fa-phone"></i><a href="tel:+48579194292">+48579194292</a></p>
-                            <p><i class="fa fa-map-marker"></i>Poznan, Poland</p>
-                            <div class="social">
-                                <a class="btn" href="https://twitter.com/Raphaelmulenda"><i
-                                        class="fab fa-twitter"></i></a>
-                                <a class="btn" href="https://www.linkedin.com/in/raphael-mulenda-53569342/"><i
-                                        class="fab fa-linkedin-in"></i></a>
-                                <a class="btn" href="https://github.com/raphaelmulenda"><i
-                                        class="fab fa-github"></i></a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form">
-                            <form>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" placeholder="Your Name" />
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <input type="email" class="form-control" placeholder="Your Email" />
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Subject" />
-                                </div>
-                                <div class="form-group">
-                                    <textarea class="form-control" rows="5" placeholder="Message"></textarea>
-                                </div>
-                                <div><button class="btn" type="submit">Send Message</button></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include "resume/contact.html" %}
         <!-- Contact End -->
 
         <!-- Footer Start -->

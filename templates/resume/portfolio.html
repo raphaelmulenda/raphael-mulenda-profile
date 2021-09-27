@@ -1,0 +1,42 @@
+ <!-- Portfolio Start -->
+ <div class="portfolio" id="portfolio">
+     <div class="content-inner">
+         <div class="content-header">
+             <h2>Portfolio</h2>
+         </div>
+         <div class="row">
+             <div class="col-lg-12">
+                 <ul id="portfolio-flters">
+                     {% for portfolio in portfolios %}
+                     {% ifchanged  %}
+                     <li data-filter="*" class="filter-active">All</li>
+                     {% endifchanged %}
+                     {% ifchanged  %}
+                     <li data-filter=".{{portfolio.slug}}">{{portfolio.project_area}}</li>
+                     {% endifchanged %}
+                     {% endfor %}
+
+                 </ul>
+             </div>
+         </div>
+         <div class="row portfolio-container">
+             {% for portfolio in portfolios %}
+             <div class="col-lg-4 col-md-6 portfolio-item {{portfolio.slug}}">
+                 <div class="portfolio-wrap">
+                     <figure>
+                         <img src="{{portfolio.project_image.url}}" class="img-fluid" alt="">
+                         <a href="{{portfolio.project_image.url}}" data-lightbox="portfolio"
+                             data-title="{{portfolio.project_name}}" class="link-preview" title="Preview"><i
+                                 class="fa fa-eye"></i></a>
+                         <a href="{{portfolio.project_url}}" class="link-details" title="More Details"><i
+                                 class="fa fa-link"></i></a>
+                         <a class="portfolio-title" href="{{portfolio.project_url}}">{{portfolio.project_name}}
+                             <span>{{portfolio.project_description}}</span></a>
+                     </figure>
+                 </div>
+             </div>
+             {% endfor %}
+         </div>
+     </div>
+ </div>
+ <!-- Portfolio End -->

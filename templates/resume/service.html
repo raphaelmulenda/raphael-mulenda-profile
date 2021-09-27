@@ -1,0 +1,20 @@
+<!-- Service Start -->
+<div class="service" id="service">
+    <div class="content-inner">
+        <div class="content-header">
+            <h2>Service</h2>
+        </div>
+        <div class="row align-items-center">
+            {% for service in services %}
+            <div class="col-md-6">
+                <div class="srv-col">
+                    <i class="{{service.service_url}}"></i>
+                    <h3>{{service.service_area}}</h3>
+                    <p>{{service.service_description| linebreaks}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Service Start -->

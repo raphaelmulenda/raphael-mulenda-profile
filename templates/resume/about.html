@@ -6,11 +6,13 @@
         </div>
         <div class="row align-items-center">
             <div class="col-md-6 col-lg-5">
-                <img src="static/resume/img/about.jpg" alt="Image">
+            {% for about in aboutme %}
+                <img src="{{about.image_about.url}}" alt="Image">
+                {% endfor %}
             </div>
             <div class="col-md-6 col-lg-7">
                 <p>
-                    {{about.about_me}}
+                    {{about.about_me| linebreaks}}
                 </p>
                 <a class="btn" href="#">Hire Me</a>
             </div>

@@ -1,0 +1,14 @@
+       <!-- Header Start -->
+        <div class="header" id="header">
+        {% for about in aboutme %}
+            <div class="content-inner" >
+                <p>I'm</p>
+                <h1>{{about.first_name}} {{about.last_name}}</h1>
+                <h2></h2>
+                {% for expertise in expertises  %}
+                <div class="typed-text">, {{expertise}}</div>
+                {% endfor %}
+            </div>
+{% endfor %}
+        </div>
+        <!-- Header End -->

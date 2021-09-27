@@ -1,6 +1,6 @@
 from datetime import date
 
-from django.core.validators import MaxValueValidator, MinLengthValidator
+from django.core.validators import MaxLengthValidator, MaxValueValidator, MinLengthValidator , MinValueValidator
 from django.db import models
 from django.db.models.deletion import CASCADE
 
@@ -21,7 +21,7 @@ class Skillarea(models.Model):
 
 class Skill(models.Model):
     skill_branch = models.CharField(max_length=100, blank=True)
-    skill_level =models.IntegerField(blank=True, null=True)
+    skill_level =models.IntegerField(default =1, validators=[MaxValueValidator(100),MinValueValidator(1)],blank=True, null=True)
     area_of_work = models.ForeignKey(Skillarea,  on_delete=models.CASCADE,blank=True)
     
     def __str__(self):
@@ -36,8 +36,31 @@ class Aboutme(models.Model):
     image_main = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     image_sidbar = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     image_about = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    professions =models.ManyToManyField(Profession,blank=True)
-    skill =models.ForeignKey(Skill,on_delete=models.CASCADE,blank=True, default=None)
+    professions = models.ManyToManyField(Profession,blank=True)
+    email_address = models.EmailField(max_length=100,blank=True)
+    phon_number = models.CharField(max_length=100)
+    city = models.CharField(max_length=50,blank=True)
+    country =models.CharField(max_length=50,blank=True)
+    social_media_1_name = models.CharField(max_length=50, blank=True)
+    social_media_1_url = models.URLField(blank=True)
+    social_media_1_icon = models.CharField(max_length=50, blank=True)
+    social_media_2_name = models.CharField(max_length=50, blank=True)
+    social_media_2_url = models.URLField(blank=True)
+    social_media_2_icon = models.CharField(max_length=50, blank=True)
+    social_media_3_name = models.CharField(max_length=50, blank=True)
+    social_media_3_url = models.URLField(blank=True)
+    social_media_3_icon = models.CharField(max_length=50, blank=True)
+    social_media_4_name = models.CharField(max_length=50, blank=True)
+    social_media_4_url = models.URLField(blank=True)
+    social_media_4_icon = models.CharField(max_length=50, blank=True)
+    social_media_5_name = models.CharField(max_length=50, blank=True)
+    social_media_5_url = models.URLField(blank=True)
+    social_media_5_icon = models.CharField(max_length=50, blank=True)
+    social_media_6_name = models.CharField(max_length=50, blank=True)
+    social_media_6_url = models.URLField(blank=True)
+    social_media_6_icon = models.CharField(max_length=50, blank=True)
+    
+    #skill =models.ForeignKey(Skill,on_delete=models.CASCADE,blank=True, default=None)
     
     def __str__(self):
         return f"{self.first_name}" f"{self.last_name}" f"{self.professions}" f"{self.about_me}"
@@ -64,6 +87,7 @@ class Experience(models.Model):
     country = models.CharField(max_length=100)
     start_date = models.DateField(blank=False)
     end_date = models.DateField(blank=False)
+    is_current_job = models.BooleanField(default=True)
     job_description = models.TextField(validators=[MinLengthValidator(20)])
     
     def __str__(self):
@@ -76,7 +100,7 @@ class Service(models.Model):
     service_description = models.TextField(validators=[MinLengthValidator(15)])
     
     def __str__(self):
-        f"{self.service_area}"
+        return  f"{self.service_area}"
         
 class Portfolio(models.Model):
     project_area = models.CharField(max_length=50)
@@ -84,8 +108,18 @@ class Portfolio(models.Model):
     project_description = models.CharField(max_length=100)
     project_url = models.URLField(blank=True)
     project_image = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    slug = models.SlugField(default="",blank=True)
+    
     
     def __str__(self):
-         f"{self.project_area}"  f"{self.project_name}"  f"{self.project_description}"
+        return  f"{self.project_area}"  f"{self.project_name}"  f"{self.project_description}"
 
 
+class Contact(models.Model):
+    contact_name = models.CharField(max_length=120)
+    contact_email = models.EmailField()
+    subject = models.CharField(max_length=50)
+    contact_message = models.TextField()
+    
+    def __str__(self):
+        return f"{self.contact_name}"   f"{self.contact_email}" f"{self.subject}" 

@@ -1,0 +1,25 @@
+<!-- Experience Start -->
+<div class="experience" id="experience">
+    <div class="content-inner">
+        <div class="content-header">
+            <h2>Experience</h2>
+        </div>
+        <div class="row align-items-center">
+            {% for experience in experiences %}
+            <div class="col-md-6">
+                <div class="exp-col">
+                    {% if experience.is_current_job %}
+                    <span>{{experience.start_date|date:"d M Y"}} <i>to </i> Present </span> {% else %}
+                    <span>{{experience.start_date|date:"d M Y"}} <i>to </i> {{experience.end_date |date:"d M Y"}}
+                    </span>{% endif %}
+                    <h3>{{experience.company}}</h3>
+                    <h4>{{experience.city}}, {{experience.country}}</h4>
+                    <h5>{{experience.work_position}}</h5>
+                    <p>{{experience.job_description| linebreaks}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Experience End -->

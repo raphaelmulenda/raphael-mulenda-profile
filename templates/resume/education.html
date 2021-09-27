@@ -1,0 +1,23 @@
+<!-- Education Start -->
+<div class="education" id="education">
+    <div class="content-inner">
+        <div class="content-header">
+            <h2>Education</h2>
+        </div>
+        <div class="row align-items-center">
+            {% for education in educations %}
+            <div class="col-md-6">
+            
+                <div class="edu-col">
+                    <span>{{education.start_date|date:"d M Y"}} <i>to</i> {{education.end_date|date:"d M Y"}}</span>
+                    <h3>{{education.study_level}}</h3>
+                    <h4>{{education.city}}, {{education.country}}</h4>
+                    <p>{{education.study_field}} at <a class="uni-link" href="{{education.university_url}}">{{education.university}}</a></p>
+                </div>
+                
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Education End -->
