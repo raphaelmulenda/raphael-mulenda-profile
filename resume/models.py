@@ -1,5 +1,4 @@
 from datetime import date
-
 from django.core.validators import MaxLengthValidator, MaxValueValidator, MinLengthValidator , MinValueValidator
 from django.db import models
 from django.db.models.deletion import CASCADE
@@ -116,10 +115,10 @@ class Portfolio(models.Model):
 
 
 class Contact(models.Model):
-    contact_name = models.CharField(max_length=120)
-    contact_email = models.EmailField()
-    subject = models.CharField(max_length=50)
-    contact_message = models.TextField()
+    contact_name = models.CharField(max_length=120,blank=False,error_messages={'required': 'Please enter your name'})
+    contact_email = models.EmailField(blank=False,error_messages={'required': 'Please enter your Email'})
+    subject = models.CharField(max_length=50,blank=False, error_messages={'required': 'Please enter a subject'})
+    contact_message = models.TextField(blank=False,error_messages={'required': 'Please enter your message here'})
     
     def __str__(self):
         return f"{self.contact_name}"   f"{self.contact_email}" f"{self.subject}" 

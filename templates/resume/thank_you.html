@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!--Sidebard Start-->
+<div class="wrapper">
+    <div class="sidebar">
+        <div class="sidebar-header">
+            {% for about in aboutme  %}
+            <img src="{{about.image_sidbar.url}}" alt="Image">
+            {% endfor %}
+        </div>
+        <div class="sidebar-content">
+            <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                <a href="#" class="navbar-brand">Navigation</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="home">Home&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <i
+                                    class="fa fa-home"></i></a>
+                        </li>
+
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!--Sidebard End-->
+        <!--footer Start-->
+        <div class="sidebar-footer ">
+            {% include "partials/_footer_icone.html" %}
+
+        </div>
+        <!--footer End-->
+
+    </div>
+
+    <div class="content">
+        <!-- Header Start -->
+        <div class="header" id="header">
+            <div class="content-inner">
+                <h1>Thank you! </h1>
+                <h2></h2>
+                 <div class="typed-text">, Your message has been sent successfully, </div>
+
+            </div>
+            <div>
+                <div style="width:100%;height:0;padding-bottom:100%;position:relative;">
+                    <iframe src="https://giphy.com/embed/3oEdva9BUHPIs2SkGk" width="100%" height="100%"
+                        style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+                <p>
+                    <a href="https://giphy.com/gifs/3oEdva9BUHPIs2SkGk"></a></p>
+            </div>
+        </div>
+        <!-- Header Start -->
+        {% include "partials/_footer.html"%}
+        {% include 'partials/_js.html' %}
+        {% endblock content %}

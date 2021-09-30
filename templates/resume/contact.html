@@ -16,41 +16,35 @@
                     <p><i class="fa fa-phone"></i><a href="tel:{{about.phon_number}}">{{about.phon_number}}</a></p>
                     <p><i class="fa fa-map-marker"></i>{{about.city}}, {{about.country}} </p>
                     {% endfor %}
+                    <!-- Footer Icon Start-->
                     <div class="social">
                         <a class="btn" href="https://twitter.com/Raphaelmulenda"><i class="fab fa-twitter"></i></a>
                         <a class="btn" href="https://www.linkedin.com/in/raphael-mulenda-53569342/"><i
                                 class="fab fa-linkedin-in"></i></a>
                         <a class="btn" href="https://github.com/raphaelmulenda"><i class="fab fa-github"></i></a>
                     </div>
-
+                    <!-- Footer Icon End-->
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form">
                     <form method="POST">
                         {% csrf_token %}
-                        {% for field in form  %}
-                        <div class="form-group {%if field.errors%}errors{% endif %}">
-                            {{field.label_tag}}
-                            {{field}}
-                            {{field.errors}}
-                            <!-- <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" placeholder="Your Name" />
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <input type="email" class="form-control" placeholder="Your Email" />
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Subject" />
-                                </div>
-                                <div class="form-group">
-                                    <textarea class="form-control" rows="5" placeholder="Message"></textarea>
-                                </div>-->
-                        </div>
-                        {% endfor %}
-                        <div><button class="btn" type="submit">Send Message</button></div>
+
+                        <div class="form-group {%if form.errors%}errors{% endif %}">
+                            {{form.errors}}
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input class="form-control" placeholder="Your Name" {{form.contact_name}} </div>
+                                        <div class="form-group col-md-6 ">
+                                    <input class="form-control" placeholder="Your Email" {{form.contact_email}} </div>
+                                        </div> <div class="form-group ">
+                                    <input class="form-control" placeholder="Subject" {{form.subject}} </div> <div
+                                        class="form-group">
+                                    <textarea class="form-control" placeholder="Message" {{form.contact_message}} </div>
+                                        <div><button class="btn" type="submit">Send Message</button></div>
+                            </div>
                     </form>
                 </div>
             </div>

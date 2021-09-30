@@ -14,7 +14,12 @@ class ContactForm(forms.ModelForm):
     }
     error_messages = {
         "contact_name":{"required":"Your Name must not be empty"
-                    }
-        
-    
+                    },
+        "contact_email": {"required":"Your Email must not be empty"
+                    },
+        "subject": {"required":"Your Email must not be empty"
+                    },
+        "contact_message": {"required":"The message must not be empty"
+                    }     
     }
+    
