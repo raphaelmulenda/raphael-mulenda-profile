@@ -1,62 +1,44 @@
+<div class="col-md-6">
+    <div class="skills">
+        {% ifchanged  %}
+        <h3>{{skill.area_of_work}} </h3>
+        {% endifchanged %}
 
-            <div class="col-md-6">
-                <div class="skills">
-                    {% ifchanged  %}
-                    <h3>{{skill.area_of_work}} </h3>
-                    {% endifchanged %}
-                    
-                    <div class="skill-name">
-                    
-                        <p>{{skill.skill_branch}}</p>
-                        <p>{{skill.skill_level}}%</p>
-                        
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="{{skill.skill_level}}" aria-valuemin="0"
-                            aria-valuemax="100">
-                            </div>
-                    </div>
+        <div class="skill-name">
 
-                </div>
-            </div>
+            <p>{{skill.skill_branch}}</p>
+            <p>{{skill.skill_level}}%</p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-            -------------------
-
-
-            <div class="row">
-            {% for skill in skills %}
-            <div class="col-md-6">
-            
-                <div class="skills">
-                    {% ifchanged  %}
-                    <h3>{{skill.area_of_work}} </h3>
-                    {% endifchanged %}
-                    
-                    <div class="skill-name">
-                    
-                        <p>{{skill.skill_branch}}</p>
-                        <p>{{skill.skill_level}}%</p>
-                        
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="{{skill.skill_level}}" aria-valuemin="0"
-                            aria-valuemax="100">
-                            </div>
-                    </div>
-
-                </div>
-            </div>
-                {% endfor %}
         </div>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{skill.skill_level}}" aria-valuemin="0"
+                aria-valuemax="100">
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+    {% for skill in skills %}
+    <div class="col-md-6">
+
+        <div class="skills">
+            {% ifchanged  %}
+            <h3>{{skill.area_of_work}} </h3>
+            {% endifchanged %}
+
+            <div class="skill-name">
+
+                <p>{{skill.skill_branch}}</p>
+                <p>{{skill.skill_level}}%</p>
+
+            </div>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{skill.skill_level}}" aria-valuemin="0"
+                    aria-valuemax="100">
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
