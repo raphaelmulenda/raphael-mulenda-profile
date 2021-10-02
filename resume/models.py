@@ -58,6 +58,7 @@ class Aboutme(models.Model):
     social_media_6_name = models.CharField(max_length=50, blank=True)
     social_media_6_url = models.URLField(blank=True)
     social_media_6_icon = models.CharField(max_length=50, blank=True)
+    upload_cv = models.FileField(upload_to='resume/%Y/%m/%d/', blank =True)
     
     #skill =models.ForeignKey(Skill,on_delete=models.CASCADE,blank=True, default=None)
     

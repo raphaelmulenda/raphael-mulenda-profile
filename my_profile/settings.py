@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'wkhtmltopdf',
 ]
 
 MIDDLEWARE = [
@@ -144,3 +145,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'mwambaruffin@gmail.com'
 EMAIL_HOST_PASSWORD = '0811890235'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+WKHTMLTOPDF_CMD_OPTIONS = {
+    'quiet': True,
+}

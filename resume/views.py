@@ -6,7 +6,13 @@ from django.http import HttpResponse
 from django.core.mail import  BadHeaderError,send_mail
 from django.shortcuts import render, redirect
 from datetime import date
-  
+#############
+
+######
+from weasyprint import HTML, CSS
+from django.template.loader import get_template
+
+
     
 class HomePageView(TemplateView):
      template_name = "resume/index.html"
@@ -58,3 +64,26 @@ class ThankYouView(TemplateView):
         context["message"] = "This works well!"
         context['date'] = date.today
         return context
+    
+
+
+
+
+
+# class GeneratePdf(View):
+#     def get(self, request, *args, **kwargs):
+        
+#         #getting the template
+      
+#         pdf = render_to_pdf('resume/index.html')
+        
+#         #rendering the template
+#         return HttpResponse(pdf, content_type='application/pdf')
+
+
+# def pdf_generation(reques,*args, **kwargst):
+#     html_template = get_template('resume/index.html')
+#     pdf_file = HTML(string=html_template).write_pdf()
+#     response = HttpResponse(pdf_file, content_type='application/pdf')
+#     response['Content-Disposition'] = 'filename="home_page.pdf"'
+#     return response
