@@ -44,8 +44,6 @@ class HomePageView(TemplateView):
              }
              email_message ="\n".join(body.values())
              
-             print(email_message)
-             
              try:
                  send_mail(subject,email_message,f'{contact_email}',['mulendaraphael@yahoo.fr'])
              except BadHeaderError:

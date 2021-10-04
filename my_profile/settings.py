@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,10 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-4)9$#%$e7av^$-f%yxqno$7o9b-)=u1(o-(3m@f-0n*wa(%ihv'
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG =True #config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -77,10 +79,11 @@ WSGI_APPLICATION = 'my_profile.wsgi.application'
 
 DATABASES = {'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'resumedb',
-        'USER': 'postgres',
-        'PASSWORD': '0811890235rfM',
-        'HOST': 'localhost'
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config("DB_PASSWORD"),
+        'HOST': 'localhost',
+        'PORT': config("DB_PORT")
     }
 }
 
@@ -138,13 +141,13 @@ MEDIA_URL = '/media/'
 
 
 # Email settings
-EMAIL_HOST = 'smtp.gmail.com'  # since you are using a gmail account
-EMAIL_PORT = 587  # Gmail SMTP port for TLS
+EMAIL_HOST = config("EMAIL_HOST")  # since you are using a gmail account
+EMAIL_PORT = config('EMAIL_PORT') # Gmail SMTP port for TLS
 EMAIL_USE_TLS = True  
 
-EMAIL_HOST_USER = 'mwambaruffin@gmail.com'
-EMAIL_HOST_PASSWORD = '0811890235'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+EMAIL_BACKEND = config("EMAIL_BACKEND")
 
 WKHTMLTOPDF_CMD_OPTIONS = {
     'quiet': True,
