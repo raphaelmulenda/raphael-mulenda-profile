@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    
+   
     
     
 ]
@@ -55,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'my_profile.urls'
@@ -133,8 +135,9 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
-STATICFILES_DIRS = [BASE_DIR/"static"]
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #Heroku Setup
 
 # Default primary key field type
