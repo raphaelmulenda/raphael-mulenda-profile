@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 from decouple import config
-import dj_database_url #Heroku setup
+#import dj_database_url #Heroku setup
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,7 +29,7 @@ SECRET_KEY = config("SECRET_KEY")
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'raphael-profile.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'raphael-profile.herokuapp.com',".herokuapp.com",'*','']
 
 # Application definition
 
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'whitenoise.runserver_nostatic',
+    #'whitenoise.runserver_nostatic',
     
    
     
@@ -56,7 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'my_profile.urls'
@@ -93,8 +93,8 @@ DATABASES = {'default': {
     }
 }
 
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env) #Heroku setup
+#db_from_env = dj_database_url.config(conn_max_age=600)
+#DATABASES['default'].update(db_from_env) #Heroku setup
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -135,10 +135,10 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [BASE_DIR/"static"]
 
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #Heroku Setup
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #Heroku Setup
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -163,4 +163,42 @@ EMAIL_BACKEND = config("EMAIL_BACKEND")
 WKHTMLTOPDF_CMD_OPTIONS = {
     'quiet': True,
 }
+
+
+ # Debugging in heroku live
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'verbose': {
+#             'format': ('%(asctime)s [%(process)d] [%(levelname)s] ' +
+#                        'pathname=%(pathname)s lineno=%(lineno)s ' +
+#                        'funcname=%(funcName)s %(message)s'),
+#             'datefmt': '%Y-%m-%d %H:%M:%S'
+#         },
+#         'simple': {
+#             'format': '%(levelname)s %(message)s'
+#         }
+#     },
+#     'handlers': {
+#         'null': {
+#             'level': 'DEBUG',
+#             'class': 'logging.NullHandler',
+#         },
+#         'console': {
+#             'level': 'DEBUG',
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'verbose'
+#         }
+#     },
+#     'loggers': {
+#         'testlogger': {
+#             'handlers': ['console'],
+#             'level': 'INFO',
+#         }
+#     }
+# }
+
+# DEBUG_PROPAGATE_EXCEPTIONS = True
+# COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 
