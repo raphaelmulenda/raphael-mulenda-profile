@@ -14,10 +14,7 @@ charset-normalizer==2.0.6
 colorama==0.4.3
 cryptography==35.0.0
 cssselect2==0.4.1
-dj-database-url==0.5.0
 Django==3.2.7
-django-downloadview==2.1.1
-django-wkhtmltopdf==3.3.0
 docker==4.4.4
 docker-compose==1.25.5
 dockerpty==0.4.1
@@ -36,7 +33,6 @@ psycopg2-binary==2.9.1
 pycparser==2.20
 pydyf==0.1.1
 PyNaCl==1.4.0
-PyPDF2==1.26.0
 pyphen==0.11.0
 pyrsistent==0.18.0
 python-bidi==0.4.2
@@ -54,9 +50,7 @@ texttable==1.6.4
 tinycss2==1.1.0
 urllib3==1.26.7
 wcwidth==0.1.9
-weasyprint==53.3
 webencodings==0.5.1
 websocket-client==0.59.0
 whitenoise==5.3.0
-xhtml2pdf==0.2.5
 zopfli==0.1.8
