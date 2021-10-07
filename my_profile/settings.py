@@ -36,7 +36,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG =env('DEBUG')
 
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'raphael-profile.herokuapp.com',".herokuapp.com",'*','']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'raphael-profile.herokuapp.com','*','']
 
 # Application definition
 
