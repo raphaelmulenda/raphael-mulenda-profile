@@ -9,7 +9,6 @@ from datetime import date
 #############
 
 ######
-from weasyprint import HTML, CSS
 from django.template.loader import get_template
 
 
