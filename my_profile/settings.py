@@ -33,7 +33,7 @@ environ.Env.read_env()
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =env('DEBUG', default=False, cast=bool)
+DEBUG =env('DEBUG')
 
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'raphael-profile.herokuapp.com',".herokuapp.com",'*','']
@@ -95,7 +95,7 @@ DATABASES = {'default': {
         'NAME': env('DB_NAME'),
         'USER': env('DB_USER'),
         'PASSWORD': env("DB_PASSWORD"),
-        'HOST': env('DB_HOST'),
+        'HOST': env('DB_HOST',),
         'PORT': env("DB_PORT")
     }
 }
