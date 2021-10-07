@@ -15,7 +15,7 @@ import os
 from decouple import config
 import environ
 from environ.environ import Env
-#import dj_database_url #Heroku setup
+import dj_database_url #Heroku setup
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,10 +33,10 @@ environ.Env.read_env()
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =env('DEBUG')
+DEBUG =True #env('DEBUG')
 
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'raphael-profile.herokuapp.com','*','']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'raphael-profile.herokuapp.com',".herokuapp.com",'*','']
 
 # Application definition
 
@@ -57,13 +57,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'whitenoise.middleware.WhiteNoiseMiddleware',
+   
 ]
 
 ROOT_URLCONF = 'my_profile.urls'
@@ -91,17 +92,17 @@ WSGI_APPLICATION = 'my_profile.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': "django.db.backends.postgresql",
         'NAME': env('DB_NAME'),
         'USER': env('DB_USER'),
         'PASSWORD': env("DB_PASSWORD"),
-        'HOST': env('DB_HOST',),
+        'HOST': 'localhost',
         'PORT': env("DB_PORT")
     }
 }
 
-#db_from_env = dj_database_url.config(conn_max_age=600)
-#DATABASES['default'].update(db_from_env) #Heroku setup
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env) #Heroku setup
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -145,7 +146,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [BASE_DIR/"static"]
 
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #Heroku Setup
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #Heroku Setup # Simplified static file serving.
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
