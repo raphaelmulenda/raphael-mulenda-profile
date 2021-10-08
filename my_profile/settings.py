@@ -33,7 +33,7 @@ environ.Env.read_env()
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =True #env('DEBUG')
+DEBUG =env('DEBUG')
 
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'raphael-profile.herokuapp.com',".herokuapp.com",'*','']
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'whitenoise.runserver_nostatic',
+    'whitenoise.runserver_nostatic',
     
    
     
@@ -144,9 +144,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_DIRS = [BASE_DIR/"static"]
+#STATICFILES_DIRS = [BASE_DIR/"static"]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #Heroku Setup # Simplified static file serving.
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #Heroku Setup # Simplified static file serving.
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
