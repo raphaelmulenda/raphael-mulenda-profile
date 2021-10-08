@@ -867,6 +867,7 @@ a:focus {
 /**********************************/
 /*********** Review CSS ***********/
 /**********************************/
+/***
 .review {
     position: relative;
     background: #ffffff;
@@ -999,7 +1000,7 @@ a:focus {
 .review-slider.slick-slider {
     margin-bottom: 0;
 }
-
+***/
 
 /**********************************/
 /*********** Contact CSS ***********/
