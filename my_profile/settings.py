@@ -30,10 +30,10 @@ environ.Env.read_env()
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =env('DEBUG')
+DEBUG =config('DEBUG')
 
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'raphael-profile.herokuapp.com',".herokuapp.com",'*','']
@@ -93,11 +93,11 @@ WSGI_APPLICATION = 'my_profile.wsgi.application'
 
 DATABASES = {'default': {
         'ENGINE': "django.db.backends.postgresql",
-        'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env("DB_PASSWORD"),
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config("DB_PASSWORD"),
         'HOST': 'localhost',
-        'PORT': env("DB_PORT")
+        'PORT': config("DB_PORT")
     }
 }
 
