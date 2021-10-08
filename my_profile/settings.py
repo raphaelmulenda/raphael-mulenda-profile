@@ -33,10 +33,10 @@ environ.Env.read_env()
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =config('DEBUG')
+DEBUG =env('DEBUG')
 
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'raphael-profile.herokuapp.com',".herokuapp.com",'*','']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'raphael-profile.herokuapp.com',".herokuapp.com",'*']
 
 # Application definition
 
