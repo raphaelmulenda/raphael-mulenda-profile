@@ -16,10 +16,12 @@ from decouple import config
 import environ
 from environ.environ import Env
 import dj_database_url #Heroku setup
+#import django_heroku
+import django_on_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Initialise environment variables
 
@@ -144,7 +146,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_DIRS = [BASE_DIR/"static"]
+#STATICFILES_DIRS = [BASE_DIR/"static"]
 
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #Heroku Setup # Simplified static file serving.
 
@@ -172,5 +174,5 @@ WKHTMLTOPDF_CMD_OPTIONS = {
     'quiet': True,
 }
 
-
+django_on_heroku.settings(locals())
  
