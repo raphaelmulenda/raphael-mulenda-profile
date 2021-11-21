@@ -10,14 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-from pathlib import Path
 import os
-from decouple import config
+from pathlib import Path
+
 import environ
+from decouple import config
 from environ.environ import Env
-import dj_database_url #Heroku setup
+
+#import dj_database_url #Heroku setup
 #import django_heroku
-import django_on_heroku
+#import django_on_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,7 +40,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG =env('DEBUG')
 
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1',".herokuapp.com",'raphael-mulenda.herokuapp.com','*']
+ALLOWED_HOSTS = ['raphaelmulenda.ml', 'localhost','127.0.0.1']
 
 # Application definition
 
@@ -103,8 +105,8 @@ DATABASES = {'default': {
     }
 }
 
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env) #Heroku setup
+#db_from_env = dj_database_url.config(conn_max_age=600)
+#DATABASES['default'].update(db_from_env) #Heroku setup
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -162,17 +164,17 @@ MEDIA_URL = '/media/'
 
 
 # Email settings
+EMAIL_BACKEND = config("EMAIL_BACKEND")
 EMAIL_HOST = config("EMAIL_HOST")  # since you are using a gmail account
 EMAIL_PORT = config('EMAIL_PORT') # Gmail SMTP port for TLS
-EMAIL_USE_TLS = True  
-
+EMAIL_USE_TLS = True
 EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
-EMAIL_BACKEND = config("EMAIL_BACKEND")
+
 
 WKHTMLTOPDF_CMD_OPTIONS = {
     'quiet': True,
 }
 
-django_on_heroku.settings(locals())
+
  
